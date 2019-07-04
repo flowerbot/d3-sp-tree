@@ -290,7 +290,7 @@ tr.listinfo td  {
 <!-- <form id="form1" runat="server"> -->
 <!-- Uncomment above and matching </form> tag to re-enable _spPageContextInfo in this page - removed to stop Chrome prompting with nonsense on refresh-->
 	</div>
-<h2>Tweed Shire Council BrightWork Hierarchy</h2>
+<h2>Example Council BrightWork Hierarchy</h2>
 <div class='dataDate' title='To enable fast results after the first call of this page, data is saved in your browser until you manually refresh by clicking the button'>
 	<input type="button" id="RefreshBtn" value="Refresh Data"></input>  Data date: <span id='dataDate'></span><input type="button" id="ExportBtn" value="Export Data"><input type="button" id="ImportBtn" value="Import Data">
 
@@ -638,7 +638,7 @@ var data2 = [{
 	"key":"BrightWork PPM",
 	"name": "BrightWork PPM",
   "url": "/",
-  "desc": "<- Click to visit the BrightWork SharePoint, Tweed Shire Council's Project and Portfolio Management System",
+  "desc": "<- Click to visit the BrightWork SharePoint, Example Council's Project and Portfolio Management System",
 	"level": 0,
 	"children": []
 }];
