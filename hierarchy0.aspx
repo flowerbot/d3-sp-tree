@@ -249,7 +249,7 @@ tr.listinfo td  {
 
 }
 
-#dataToggle, #dataDesc {
+#dataToggle, #dataDesc, .JSONlinks {
 	font-family: 'Kite One', sans-serif !important;
 }
 
@@ -544,7 +544,8 @@ function sortFunction(a, b) {
 				},
 				error: function(subsites) {
 					try {
-							$("#nodeDescription").html(tempdesc);
+						console.log(tempdesc);
+							$("#nodeDescription").html(tempdesc + listsDesc);
 							$("#webLink").html(tempurl);
 						 update(d);
 					 } catch (ex) {}
@@ -1144,6 +1145,7 @@ imptbtn.onclick =  function() {
 	//const {value: impData} = await Swal.fire({
 	Swal.fire({
 		title: "Paste complete JSON text below:",
+		html: "<div class='JSONlinks'><a href='/projects/admin/admin wiki/sampleHierarchyJSON.txt' target='_blank'>Sample JSON formatted text</a> ~ <a href='https://jsonformatter.org/' target='_blank'>JSON format help</a></div>",
 		input: 'text',
 		inputPlaceholder: 'paste properly formed JSON object as text',
 		width: "80%",
