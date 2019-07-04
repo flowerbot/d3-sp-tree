@@ -17,7 +17,6 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 <script src="/SiteAssets/scripts/promise-polyfill.js" ></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Kite+One" rel="stylesheet">
 
 
