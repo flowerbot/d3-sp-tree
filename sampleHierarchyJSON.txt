@@ -1,0 +1,80 @@
+[
+  [
+    {
+      "name": "BrightWork PPM",
+      "url": "/",
+      "desc": "&lt;- Click to visit the BrightWork SharePoint, Tweed Shire Council's Project and Portfolio Management System",
+      "level": 0,
+      "children": [
+        {
+          "name": "Archived Projects",
+          "url": "/archived",
+          "desc": "",
+          "children": [
+            {
+              "name": "Archived 2018-2019",
+              "url": "/archived/archived2019",
+              "desc": "",
+              "children": [
+                {
+                  "name": "2017-2018 Asphalt Rejuvenation Program",
+                  "url": "/archived/archived2019/ROA144-3",
+                  "desc": "2017/2018 Asphalt Rejuvenation Program. Application of rejuvenation agent to asphalt surfaced urban streets.\r\nExclusions:  Pavement upgrades and major rehabilitations."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Projects Area",
+          "url": "/Projects",
+          "desc": "Projects Area",
+          "children": [
+            {
+              "name": "BrightWork Administration",
+              "url": "/Projects/admin",
+              "desc": "",
+              "children": []
+            },
+            {
+              "name": "Built Infrastructure Projects",
+              "url": "/Projects/built",
+              "desc": "",
+              "children": [
+                {
+                  "name": "Analysis, Investigation, Option, Evaluation",
+                  "url": "/Projects/built/analysis",
+                  "desc": "These projects are carried out before a decision is made as to methods and/or approach for delivery of an infrastructure project.",
+                  "children": [
+                    {
+                      "name": "IAI Test - SPS 3021 Fraser Drive Central - Vehicle Access Safety Upgrade",
+                      "url": "/Projects/built/analysis/IAI1",
+                      "desc": "Based on BrightWork default Structure Template with added phases, lists and default tasks"
+                    }
+                  ]
+                },
+                {
+                  "name": "Another Project Office",
+                  "url": "/Another site",
+                  "desc": "Something about this project office.",
+                  "children": [
+                    {
+                      "name": "A project",
+                      "url": "/Projects/built/analysis/IAI1",
+                      "desc": "Based on BrightWork default Structure Template with added phases, lists and default tasks"
+                    },
+                    {
+                      "name": "Another project",
+                      "url": "/Projects/built/analysis/IAI1",
+                      "desc": "Based on BrightWork default Structure Template with added phases, lists and default tasks"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+]
