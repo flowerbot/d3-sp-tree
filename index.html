@@ -975,7 +975,9 @@ function update(source) {
 			}
 		}).call(endAll, function() {
 		//	alert('finished');
+		try {
 		modal.style.display = "none";
+		} catch (ex) {};
 		$(".reloadingImg").addClass("hidden");
 		});
 
