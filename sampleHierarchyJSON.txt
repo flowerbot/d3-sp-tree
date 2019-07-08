@@ -1,9 +1,9 @@
 [
   [
     {
-      "name": "BrightWork PPM",
+      "name": "Project PPM",
       "url": "/",
-      "desc": "&lt;- Click to visit the BrightWork SharePoint, Tweed Shire Council's Project and Portfolio Management System",
+      "desc": "&lt;- Click to visit the Project SharePoint, Generic Council's Project and Portfolio Management System",
       "level": 0,
       "children": [
         {
@@ -31,7 +31,7 @@
           "desc": "Projects Area",
           "children": [
             {
-              "name": "BrightWork Administration",
+              "name": "Project Administration",
               "url": "/Projects/admin",
               "desc": "",
               "children": []
@@ -49,7 +49,7 @@
                     {
                       "name": "IAI Test - SPS 3021 Fraser Drive Central - Vehicle Access Safety Upgrade",
                       "url": "/Projects/built/analysis/IAI1",
-                      "desc": "Based on BrightWork default Structure Template with added phases, lists and default tasks"
+                      "desc": "Based on Project default Structure Template with added phases, lists and default tasks"
                     }
                   ]
                 },
@@ -61,12 +61,12 @@
                     {
                       "name": "A project",
                       "url": "/Projects/built/analysis/IAI1",
-                      "desc": "Based on BrightWork default Structure Template with added phases, lists and default tasks"
+                      "desc": "Based on Project default Structure Template with added phases, lists and default tasks"
                     },
                     {
                       "name": "Another project",
                       "url": "/Projects/built/analysis/IAI1",
-                      "desc": "Based on BrightWork default Structure Template with added phases, lists and default tasks"
+                      "desc": "Based on Project default Structure Template with added phases, lists and default tasks"
                     }
                   ]
                 }
