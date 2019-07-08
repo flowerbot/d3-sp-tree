@@ -1,5 +1,5 @@
 <head>
-	<title>BrightWork Hierarchy</title>
+	<title>Project Hierarchy</title>
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -277,7 +277,7 @@ tr.listinfo td  {
 	  <!-- Modal content -->
 	  <div class="modal-content">
 	    <span class="close">&times;</span>
-			<div class='reloadingImg'> <img class="reloadingImg" align='left' src="https://github.com/flowerbot/d3-sp-tree/blob/gh-pages/reloadIcon.gif"/>
+			<div class='reloadingImg'> <img class="reloadingImg" align='left' src="reloadIcon.gif"/>
 			</div>
     <div class="waitmsg">Please wait, getting data.  Your next refresh can reuse this data and will be much quicker.  <br />Click cancel if prompted to sign in with your credentials - this indicates sites with restrictive permissions which cannot be included in results.</div>
 
@@ -285,7 +285,7 @@ tr.listinfo td  {
 <!-- <form id="form1" runat="server"> -->
 <!-- Uncomment above and matching </form> tag to re-enable _spPageContextInfo in this page - removed to stop Chrome prompting with nonsense on refresh-->
 	</div>
-<h2>Example Council BrightWork Hierarchy</h2>
+<h2>Example Project Hierarchy</h2>
 <div class='dataDate' title='To enable fast results after the first call of this page, data is saved in your browser until you manually refresh by clicking the button'>
 	<input type="button" id="RefreshBtn" value="Refresh Data"></input>  Data date: <span id='dataDate'></span><input type="button" id="ExportBtn" value="Export Data"><input type="button" id="ImportBtn" value="Import Data">
 
@@ -458,118 +458,13 @@ function sortFunction(a, b) {
 			///get contents
 			var listsObj = [];
 			var listsDesc = "";
-			//var listDesc = "";
-
-			$.ajax({
-				url: bwAddress + d.url + "/_api/web/lists?$select=ParentWebUrl,Title,Description,BaseTemplate",
-			//	url: _spPageContextInfo.siteAbsoluteUrl + SubSiteUrl + "/_api/web/webinfos?$select=*",
-				method: "GET",
-				headers: {
-					"Accept": "application/json; odata=verbose"
-				},
-				success: function(lists) {
-
-
-
-					$.each(lists.d.results, function(index) {
-
-					  if(this.BaseTemplate != 110 && this.BaseTemplate != 116 && this.BaseTemplate != 124 && this.BaseTemplate != 733) {
-					//if(this.BaseTemplate != 733){
-			      try {
-						if (this.ParentWebUrl != "/") {
-								level = this.ParentWebUrl.split("/").length - 1;
-
-								listsObj.push({
-							//	parentObj.children.push({
-								"key": this.Title,
-								"name": this.Title,
-								"url":this.ParentWebUrl,
-								"desc": this.Description
-							//	"type": this.EntityTypeName
-							//	"level": level,
-							//	"parent": SubSiteUrl,
-							//	"parentTitle": SubSiteTitle,
-							//	"children": []
-							})
-							}
-
-
-
-
-							//listObj = parentObj;
-					//    $('#resultsTable tr:last').after("<tr><td><p style='text-indent:"+indent+"px;'>"+this.Title + "</span></td><td><a href='"+this.ServerRelativeUrl+"'>"+this.ServerRelativeUrl+"</a></td></tr>");
-				//	var rowStr = "<tr><td nowrap><p style='text-indent:"+(level*10) +"px;'>"+this.Title + "</span></td><td><a href='"+this.ServerRelativeUrl+"'>"+this.ServerRelativeUrl+"</a></td>";
-
-
-					//	console.log(level + " from " + this.ServerRelativeUrl);
-
-					//	getSubSites(this.ServerRelativeUrl, this.Title, level, parentObj);
-						//d3.select(".reloadingImg").classed("hidden", null);
-			    } catch (ex) {
-			      console.log(ex);
-			    }
-				} // end fi
-					});
-
-					if(listsObj.length >0 ) {
-						d["listsObj"] = listsObj;
-					listsDesc += "<div><a href='#' id='toggleContent'>Site Contents</a></div>";
-					 listsDesc += "<table class='hideTable listinfo'>";
-
-					listsObj.forEach(function(item, i){
-
-				/*		var tmpType = item.type;
-						tmpType = tmpType.replace(/_x0020_/g," ");
-						tmpType = tmpType.replace(/_x005f_/g,"_");
-							tmpType = tmpType.replace(/_x002f_/g,"/");
-							tmpType = tmpType.replace(/_x002d_/g,"-"); */
-//(List Type:"+tmpType+")
-						listsDesc += "<tr class='listinfo'><td>" + item.name + "</td><td>" + item.desc + "</td></tr>";
-					});
-					listsDesc += "</table>";
-					}
-
-
-					$("#nodeDescription").html(tempdesc + listsDesc);
+            //var listDesc = "";
+            
+            $("#nodeDescription").html(tempdesc + listsDesc);
 					$("#webLink").html(tempurl);
-				update(d);
-					//$(".reloadingImg").toggleClass("hidden");
-			//d3.select(".reloadingImg").classed("hidden", "true");
-				},
-				error: function(subsites) {
-					try {
-						console.log(tempdesc);
-							$("#nodeDescription").html(tempdesc + listsDesc);
-							$("#webLink").html(tempurl);
-						 update(d);
-					 } catch (ex) {}
-				},
-				 async: false
-
-				// $("#nodeDescription").html("SITE NOT REACHED TO CHECK FOR LISTS");
-				 //$("#webLink").html(tempurl);
-		//	 update(d);
-			});
-	  	//}
-	//	} else {
-			// already got the contents
-
-
-	//	}
-
-	  //	console.log("nodetype:" + d.nodetype);
-	  	/*
-	  	var codeStart = "";
-	  	var codeEnd = "";
-
-	  		if (d.nodetype == "Department")
-	  	{
-	  		codeStart = "<span class='deptnode'>";
-	  		codeEnd = "</span>";
-	  	}
-	  	*/
-
-	  	//$("#nodeDescription").html(codeStart+tempdesc+codeEnd);
+                update(d);
+                
+                // sp version has an ajax call to look up site contents
 
 	}
 
@@ -597,7 +492,7 @@ function sortFunction(a, b) {
 
 
 
-var bwAddress = "http://tscppm";
+var bwAddress = "http://projects";
 //var redraw = false;
 
 function drawFromScratch(refresh) {
@@ -613,143 +508,60 @@ console.log('refresh:' + refresh)
 var newAll = [];
 //localStorage.clear();
 
+//***********************************
+// get data from the file
+//***********************************
 
-if(localStorage.getItem("BWHierarchy") === null || refresh == true) {
-/*
-try {
-d3.selectAll('svg').data().remove();
-} catch (ex) { }
-*/
-//d3.select("body .reloadingImg").classed("hidden", null);
-//$("body .reloadingImg").show();
-//$(".reloadingImg").removeClass("hidden");
-	document.getElementById("myModal").style.display = "block";
-//setTimeout(function() {
-console.log("building new data set");
+function ajaxget(file, successFn, xhr) {
+   // xhr;
+    if (window.XMLHttpRequest) xhr = new XMLHttpRequest(); 		// all browsers except IE
+    else xhr = new ActiveXObject("Microsoft.XMLHTTP"); 		// for IE
 
-//var L1, L2, L3, L4, L5;
+    xhr.open('GET',file);
+    xhr.onload = successFn;
+    xhr.send()
 
-var data2 = [{
-	"key":"BrightWork PPM",
-	"name": "BrightWork PPM",
-  "url": "/",
-  "desc": "<- Click to visit the BrightWork SharePoint, Example Council's Project and Portfolio Management System",
-	"level": 0,
-	"children": []
-}];
-
-var newObj;
-
-/*
-$.ajaxSetup({
-         statusCode: {
-             401: function(){
-                 // Redirec the to the login page.
-                // location.href = "./login.cfm";
-                return;
-             }
-         }
-     });
-*/
-function getSubSites(SubSiteUrl, SubSiteTitle,level, parentObj) {
-//d3.select(".reloadingImg").classed("hidden", null);
-	//	$(".reloadingImg").removeClass("hidden");
-$.ajax({
-//	url: _spPageContextInfo.siteAbsoluteUrl + SubSiteUrl + "/_api/web/webinfos?$select=ServerRelativeUrl,Title,Description",
-	url: bwAddress + SubSiteUrl + "/_api/web/webinfos?$select=ServerRelativeUrl,Title,Description",
-
-//	url: _spPageContextInfo.siteAbsoluteUrl + SubSiteUrl + "/_api/web/webinfos?$select=*",
-	method: "GET",
-	headers: {
-		"Accept": "application/json; odata=verbose"
-	},
-	success: function(subsites) {
-
-		$.each(subsites.d.results, function(index) {
-      try {
-			if (this.ServerRelativeUrl != "/") {
-					level = this.ServerRelativeUrl.split("/").length - 1;
-
-					data2.push({
-				//	parentObj.children.push({
-					"key": this.Title,
-					"name": this.Title,
-					"url":this.ServerRelativeUrl,
-					"desc": this.Description,
-					"level": level,
-					"parent": SubSiteUrl,
-					"parentTitle": SubSiteTitle,
-				//	"children": []
-				})
-				}
-
-
-
-				newObj = parentObj;
-		//    $('#resultsTable tr:last').after("<tr><td><p style='text-indent:"+indent+"px;'>"+this.Title + "</span></td><td><a href='"+this.ServerRelativeUrl+"'>"+this.ServerRelativeUrl+"</a></td></tr>");
-		var rowStr = "<tr><td nowrap><p style='text-indent:"+(level*10) +"px;'>"+this.Title + "</span></td><td><a href='"+this.ServerRelativeUrl+"'>"+this.ServerRelativeUrl+"</a></td>";
-
-
-		//	console.log(level + " from " + this.ServerRelativeUrl);
-
-			getSubSites(this.ServerRelativeUrl, this.Title, level, parentObj);
-			//d3.select(".reloadingImg").classed("hidden", null);
-    } catch (ex) {
-      console.log(ex);
-    }
-		});
-		//$(".reloadingImg").toggleClass("hidden");
-//d3.select(".reloadingImg").classed("hidden", "true");
-	},
-	error: function(subsites) {},
-	 async: false
-});
 }
+   
 
+function ajaxSuccess () {
+        console.log('loaded');
+     newAll = JSON.parse(this.response);
+    console.log(newAll);
 
- getSubSites("/", "BrightWork PPM", -1, data2);
+    localStorage.setItem("BWHierarchy", JSON.stringify(newAll));
+    var dDate =  new Date();
+    localStorage.setItem("BWHierarchyDate", dDate);
 
-
-var nestedByLevel = d3.nest()
-.key(function(d) {return d.level })
-.sortValues(function (a, b) { return b.level - a.level }) //reverse sort
-.entries(data2);
-
-
- nestedByLevel.forEach(function (LV,e,arr2) {
-		LV.values.forEach(function (LA,d,arr) {
-			var tmpArr = pullChildren(LA.name, data2);
-			if (tmpArr.length > 0) {
-				LA["children"] = tmpArr;
-			}
-		})
-
-		newAll.push(LV.values);
-	//	return LV
-});
-
-//d3.select("body .reloadingImg").classed("hidden", "true");
-		//	 $(".reloadingImg").toggleClass("hidden");
-	//		 $(".reloadingImg").removeClass("display");
-localStorage.setItem("BWHierarchy", JSON.stringify(newAll));
-var dDate =  new Date();
-localStorage.setItem("BWHierarchyDate", dDate);
+    loadTree();
 
 //}, 100); // end of timeout
 //redraw = false;
-} // end if localstorage doesn't exist
-else {
+      //  }
+    } // end xhr (ajaxget)
+
+
+if(localStorage.getItem("BWHierarchy") === null || refresh == true) {
+
+	document.getElementById("myModal").style.display = "block";
+    console.log("building new data set");
+     ajaxget("largeJSONexample.txt", ajaxSuccess);
+
+} else {
+
   console.log("retrieving saved dataset");
-  //newAll.push([]);
-//	d3.select(".reloadingImg").classed("hidden", "true");
-	// $(".reloadingImg").toggleClass("hidden");
-//	 	 $(".reloadingImg").removeClass("display");
+
   newAll = JSON.parse(localStorage.getItem("BWHierarchy"));
+  console.log(newAll);
+  loadTree();
 //d3.select(".reloadingImg").classed("hidden", "true");
+  //  drawFromScratch(false);
 }
 
+
+function loadTree() {
 $("#dataDate").html(localStorage.getItem("BWHierarchyDate"));
-console.log(JSON.parse(localStorage.getItem("BWHierarchy")));
+//console.log(JSON.parse(localStorage.getItem("BWHierarchy")));
 //console.log(newAll[0][0]);
 //console.log(newAll);
 
@@ -766,45 +578,6 @@ function pullChildren(name, arr) {
 
 
 
-/*
-function datanest(d){
- node = root = {values: d3.nest()
-      .key(function(d) { return d.parentTitle; })
-			.key(function(d) { return d.level; })
-      .rollup(function(d) {
-        return d.map(function(d) {
-          return {key: d.name };
-        });
-      })
-      .entries(data2)};
-	  return node;
-	  return root;
-	}
-
-*/
-//console.log(newData);
-
-
-	function redraw()
-	{
-
-		removeclass();
-		root.children.forEach(collapse);
-
-		update(root);
-
-		/* var node = svg.selectAll("g.node")
-			.data(nodes, function(d) { return d.id || (d.id = ++i); });
-
-			node.selectAll("circle")
-			.attr("r", 4.5)
-			.style("fill", "lightsteelblue") //red
-			.style("stroke", "lightsteelblue");
-*/
-
-	}
-
-
 
 	//d3.json("spHierarchy.txt", function(error,values){
 	//	root = data;
@@ -816,7 +589,7 @@ function datanest(d){
 	//	root = data2;
 	//	root = newData;
 	//	select2_data = extract_select2_data(data2,[],0)[1];//I know, not the prettiest...
-				select2_data = extract_select2_data(newAll[0][0],[],0)[1];//I know, not the prettiest...
+		select2_data = extract_select2_data(newAll[0][0],[],0)[1];//I know, not the prettiest...
 
 		 select2_data = select2_data.sort(function(a, b){
 		    		            return a.text < b.text ? -1 : a.text > b.text ? 1 : 0;
@@ -824,8 +597,10 @@ function datanest(d){
 
 		//console.log($(select2_data));
 		root.x0 = height / 2;
-		root.y0 = 0;
-		root.children.forEach(collapse);
+        root.y0 = 0;
+        try{
+            root.children.forEach(collapse);
+        } catch (ex) {}
 		update(root);
 		//init search box
 
@@ -849,7 +624,7 @@ function datanest(d){
 
 	d3.select(self.frameElement).style("height", "800px");
 
-
+}
 
 
 
@@ -857,6 +632,7 @@ function datanest(d){
 
 
 drawFromScratch(false);
+//drawFromScratch(false);
 
 
 
@@ -1141,7 +917,7 @@ imptbtn.onclick =  function() {
 	//const {value: impData} = await Swal.fire({
 	Swal.fire({
 		title: "Paste complete JSON text below:",
-		html: "<div class='JSONlinks'><a href='/projects/admin/admin wiki/sampleHierarchyJSON.txt' target='_blank'>Sample JSON formatted text</a> ~ <a href='https://jsonformatter.org/' target='_blank'>JSON format help</a></div>",
+		html: "<div class='JSONlinks'><a href='sampleHierarchyJSON.txt' target='_blank'>Sample JSON formatted text</a> ~ <a href='https://jsonformatter.org/' target='_blank'>JSON format help</a></div>",
 		input: 'text',
 		inputPlaceholder: 'paste properly formed JSON object as text',
 		width: "80%",
